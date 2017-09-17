@@ -1,8 +1,5 @@
 package com.esin;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public enum Situacao {
 
 	

@@ -10,22 +10,19 @@
 </h:head>
 <h:body>
 	<h:form id="tabelaSindicato">
-		<p:dataTable value="#{sindicatoBean.lista}" var="sindicato">
+		<p:dataTable value="#{sindicatoBean.lista}" var="sindicato" rows="15" paginator="true" paginatorPosition="bottom">
 			<f:facet name="header">Listagem de Sindicatos</f:facet>
 			<f:facet name="footer">Final da Listagem</f:facet>
-			<p:column>
-				<f:facet name="header">Código</f:facet>
+			<p:column  headerText="Código" width="80" sortBy="#{sindicato.codigo}" >
 			#{sindicato.codigo}
 		</p:column>
-			<p:column>
-				<f:facet name="header">Descrição</f:facet>
+			<p:column headerText="Descrição" sortBy="#{sindicato.descricao}">
 			#{sindicato.descricao}
 		</p:column>
-			<p:column>
-				<f:facet name="header">Fundação</f:facet>
+			<p:column width="180"  headerText="Fundação" sortBy="#{sindicato.fundacao}">
 			#{sindicato.fundacao}
 		</p:column>
-			<p:column>
+			<p:column width="100">
 				<p:commandLink action="#{sindicatoBean.editar}" value="editar">
 					<f:ajax execute="@this" render=":cadastroSindicato" />
 					<f:setPropertyActionListener target="#{sindicatoBean.sindicato}"
