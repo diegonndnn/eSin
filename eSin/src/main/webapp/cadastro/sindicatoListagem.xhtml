@@ -1,35 +1,59 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition template="/WEB-INF/templates/layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; UTF-8" />
-	<title>Listagem de Sindicatos</title>
-</h:head>
-<h:body>
-	<h:form id="tabelaSindicato">
-		<p:dataTable value="#{sindicatoBean.lista}" var="sindicato" rows="15" paginator="true" paginatorPosition="bottom">
-			<f:facet name="header">Listagem de Sindicatos</f:facet>
-			<f:facet name="footer">Final da Listagem</f:facet>
-			<p:column  headerText="Código" width="80" sortBy="#{sindicato.codigo}" >
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="corpo">
+
+		<p:toolbar>
+
+			<f:facet name="left">
+				<p:commandButton value="Novo" icon="ui-icon-document" />
+				<span class="ui-separator"> <span
+					class="ui-icon ui-icon-grip-dotted-vertical" />
+				</span>
+
+				<p:commandButton icon="ui-icon-pencil" title="Editar" />
+
+				<p:commandButton icon="ui-icon-trash" title="Excluir" />
+
+				<p:commandButton icon="ui-icon-arrowthick-1-s"
+					title="Exportar para XLS" />
+
+
+			</f:facet>
+		</p:toolbar>
+		<br />
+
+		<h:form id="tabelaSindicato">
+			<p:dataTable value="#{sindicatoBean.lista}" var="sindicato" rows="15"
+				paginator="true" paginatorPosition="bottom">
+				<f:facet name="header">Listagem de Sindicatos</f:facet>
+				<f:facet name="footer">Final da Listagem</f:facet>
+				<p:column headerText="Código" width="80"
+					sortBy="#{sindicato.codigo}">
 			#{sindicato.codigo}
 		</p:column>
-			<p:column headerText="Descrição" sortBy="#{sindicato.descricao}">
+				<p:column headerText="Descrição" sortBy="#{sindicato.descricao}">
 			#{sindicato.descricao}
 		</p:column>
-			<p:column width="180"  headerText="Fundação" sortBy="#{sindicato.fundacao}">
+				<p:column width="180" headerText="Fundação"
+					sortBy="#{sindicato.fundacao}">
 			#{sindicato.fundacao}
 		</p:column>
-			<p:column width="100">
-				<p:commandLink action="#{sindicatoBean.editar}" value="editar">
-					<f:ajax execute="@this" render=":cadastroSindicato" />
-					<f:setPropertyActionListener target="#{sindicatoBean.sindicato}"
-						value="#{sindicato}" />
-				</p:commandLink>
-			</p:column>
-		</p:dataTable>
-	</h:form>
-</h:body>
-</html>
+
+				<p:column width="100">
+					<p:commandButton icon="ui-icon-pencil"
+						action="#{sindicatoBean.editar}">
+						<f:ajax execute="@this" render=":cadastroSindicato" />
+						<f:setPropertyActionListener value="#{sindicato}"
+							target="#{sindicatoBean.sindicato}" />
+					</p:commandButton>
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
