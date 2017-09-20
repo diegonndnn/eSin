@@ -58,5 +58,13 @@ public class SindicatoBean {
 
 		return this.lista;
 	}
+	
+	public void excluir() {
+		this.sindicatoRN = new SindicatoRN();
+		this.sindicatoRN.excluir(sindicato);
+		this.sindicatoRN = null;
+		this.novo();
+		
+	}
 
 }

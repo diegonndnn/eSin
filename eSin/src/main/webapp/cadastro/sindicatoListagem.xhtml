@@ -51,9 +51,25 @@
 						<f:setPropertyActionListener value="#{sindicato}"
 							target="#{sindicatoBean.sindicato}" />
 					</p:commandButton>
+					
+					<p:commandButton icon="ui-icon-trash">
+					
+					</p:commandButton>
+					
 				</p:column>
+				
+			
 
 			</p:dataTable>
 		</h:form>
 	</ui:define>
 </ui:composition>
+
+
+<!-- 
+	<p:commandButton action="#{sindicatoBean.editar}" icon="ui-icon-pencil">
+	<f:ajax execute="@this" render=":cadastroSindicato" />
+	<f:setPropertyActionListener target="#{sindicatoBean.sindicato}"
+				value="#{sindicato}" />
+		</p:commandButton>
+-->
