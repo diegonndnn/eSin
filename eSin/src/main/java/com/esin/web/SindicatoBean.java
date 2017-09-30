@@ -45,7 +45,7 @@ public class SindicatoBean {
 	}
 
 	public String editar() {
-		return "sindicato";
+		return null;
 	}
 
 	public Sindicato getSindicato() {
@@ -65,11 +65,12 @@ public class SindicatoBean {
 		return this.lista;
 	}
 
-	public void excluir() {
+	public String excluir() {
 		this.sindicatoRN = new SindicatoRN();
 		this.sindicatoRN.excluir(sindicato);
 		this.sindicatoRN = null;
-		this.novo();
+//		this.novo();
+		return null;
 
 	}
 

@@ -5,7 +5,8 @@ import javax.servlet.annotation.WebFilter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import com.esin.util.HibernateUtil;
+
+import com.esin.DataBase.HibernateUtil;
 
 @WebFilter(urlPatterns = { "*.jsf" })
 public class ConexaoHibernateFilter implements Filter {

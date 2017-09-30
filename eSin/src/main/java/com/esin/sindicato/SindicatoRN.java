@@ -2,7 +2,8 @@ package com.esin.sindicato;
 
 import java.util.List;
 
-import com.esin.util.DAOFactory;
+import com.esin.DataBase.DAOFactory;
+import com.esin.sindicato.DAO.SindicatoDAO;
 
 public class SindicatoRN {
 	

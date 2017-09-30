@@ -50,10 +50,11 @@
 
 				<p:column width="100">
 					<p:commandButton icon="ui-icon-pencil"
-						action="#{sindicatoBean.editar}">
-						<f:ajax execute="@this" render=":cadastroSindicato" />
+						action="#" process="@this" update=""
+						oncomplete="PF('edicaoSindicato').show()" >
 						<f:setPropertyActionListener value="#{sindicato}"
 							target="#{sindicatoBean.sindicato}" />
+						<f:ajax execute="@this" render=":tabelaSindicato" />
 					</p:commandButton>
 
 					<p:commandButton icon="ui-icon-trash"
@@ -61,7 +62,7 @@
 						onclick="if (!confirm('Confirma exclusão do sindicato #{sindicato.descricao}?')) return false;">
 						<f:setPropertyActionListener value="#{sindicato}"
 							target="#{sindicatoBean.sindicato}" />
-						<f:ajax render=":tabelaSindicato" />
+						<f:ajax render="tabelaSindicato" />
 					</p:commandButton>
 
 				</p:column>
@@ -85,8 +86,6 @@
 				</p:panelGrid>
 				<p:commandButton value="Novo" action="#{sindicatoBean.novo}" />
 				<p:commandButton value="Salvar" action="#{sindicatoBean.salvar}" />
-
-
 
 			</p:dialog>
 
