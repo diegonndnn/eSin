@@ -1,4 +1,4 @@
-package com.esin.DataBase;
+package com.esin.database;
 
 import com.esin.sindicato.DAO.SindicatoDAO;
 import com.esin.sindicato.DAO.SindicatoDAOHibernate;

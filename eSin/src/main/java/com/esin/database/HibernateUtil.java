@@ -1,4 +1,4 @@
-package com.esin.DataBase;
+package com.esin.database;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
