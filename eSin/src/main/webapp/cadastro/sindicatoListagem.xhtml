@@ -10,7 +10,10 @@
 		<p:toolbar>
 
 			<f:facet name="left">
-				<p:commandButton value="Novo" icon="ui-icon-document" />
+				<p:commandButton value="Novo" icon="ui-icon-document"
+					action="#{sindicatoBean.novo}" process="@this" update=""
+					oncomplete="PF('edicaoSindicato').show()" />
+
 				<span class="ui-separator"> <span
 					class="ui-icon ui-icon-grip-dotted-vertical" />
 				</span>
@@ -27,6 +30,7 @@
 		</p:toolbar>
 		<br />
 
+		<h:messages />
 		<h:form id="tabelaSindicato">
 			<p:dataTable value="#{sindicatoBean.lista}" var="sindicato" rows="15"
 				paginator="true" paginatorPosition="bottom">
@@ -51,16 +55,42 @@
 						<f:setPropertyActionListener value="#{sindicato}"
 							target="#{sindicatoBean.sindicato}" />
 					</p:commandButton>
-					
-					<p:commandButton icon="ui-icon-trash">
-					
+
+					<p:commandButton icon="ui-icon-trash"
+						action="#{sindicatoBean.excluir}"
+						onclick="if (!confirm('Confirma exclusão do sindicato #{sindicato.descricao}?')) return false;">
+						<f:setPropertyActionListener value="#{sindicato}"
+							target="#{sindicatoBean.sindicato}" />
+						<f:ajax render=":tabelaSindicato" />
 					</p:commandButton>
-					
+
 				</p:column>
-				
-			
+
+
 
 			</p:dataTable>
+
+
+			<p:dialog header="Novo Sindicato" widgetVar="edicaoSindicato"
+				id="sindicato-dialog" modal="true" resizable="false"
+				draggable="false" closeOnEscape="true">
+
+				<p:panelGrid columns="2" id="painel-sindicato">
+					<p:outputLabel value="Descrição:" for="descricao" />
+					<p:inputText id="descricao"
+						value="#{sindicatoBean.sindicato.descricao}" required="true" />
+					<p:outputLabel value="Fundação:" for="fundacao" />
+					<p:calendar id="fundacao"
+						value="#{sindicatoBean.sindicato.fundacao}" pattern="dd/MM/yyyy" />
+				</p:panelGrid>
+				<p:commandButton value="Novo" action="#{sindicatoBean.novo}" />
+				<p:commandButton value="Salvar" action="#{sindicatoBean.salvar}" />
+
+
+
+			</p:dialog>
+
+
 		</h:form>
 	</ui:define>
 </ui:composition>
