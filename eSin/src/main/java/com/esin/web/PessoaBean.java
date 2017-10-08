@@ -58,8 +58,7 @@ public class PessoaBean {
 		
 		if(this.lista == null) {
 			this.pessoaRN = new PessoaRN();
-			this.pessoaRN.excluir(pessoa);
-			this.pessoaRN = null;
+			this.lista = this.pessoaRN.listar();
 		}
 		
 		return this.lista;
