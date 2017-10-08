@@ -54,7 +54,23 @@ public class PessoaBean {
 		this.pessoa = pessoa;
 	}
 	
+	public List<Pessoa> getLista(){
+		
+		if(this.lista == null) {
+			this.pessoaRN = new PessoaRN();
+			this.pessoaRN.excluir(pessoa);
+			this.pessoaRN = null;
+		}
+		
+		return this.lista;
+	}
 	
-	
+	public String excuir() {
+		this.pessoaRN = new PessoaRN();
+		this.pessoaRN.excluir(pessoa);
+		this.pessoaRN = null;
+		return null;
+		
+	}
 	
 }

@@ -6,7 +6,6 @@ import com.esin.database.DAOFactory;
 import com.esin.pessoa.DAO.PessoaDAO;
 
 
-
 public class PessoaRN {
 
 private PessoaDAO dao;

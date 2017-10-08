@@ -11,10 +11,16 @@
 	
 	<h:form id="cadastroPessoa">
 		<h:messages />
-		<h:inputHidden value="#{pess}"/>
+		<h:inputHidden value="#{pessoaBean.pessoa.codigo}"/>
 		
-		
-	
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Nome:" for="nome"/>
+			<p:inputText id="nome" label="Nome" value="#{pessoaBean.pessoa.nome}"/>
+			<p:outputLabel value="Nascimento:" for="nascimento"/>
+			<p:calendar id="nascimento" value="#{pessoaBean.pessoa.nascimento}" pattern="dd/MM/yyyy"/>		
+		</p:panelGrid>
+		<br />
+		<p:commandButton value="Salvar" action="#{pessoaBean.salvar}"/>
 	</h:form>
 
 

@@ -15,6 +15,7 @@
 		<property name="hibernate.format_sql">true</property>
 
 		<mapping class="com.esin.sindicato.Sindicato" />
+		<mapping class="com.esin.pessoa.Pessoa" />
 		<!--  <mapping class="br.com.minivarejo.grupos.GrupoProduto"/>  -->
 	</session-factory>
 </hibernate-configuration>
